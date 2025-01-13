@@ -1,5 +1,5 @@
 #!/bin/bash
-PSQL="psql -X --username=freecodecamp --dbname=periodic_table --no-align --tuples-only -c"; 
+PSQL="psql -X --username=newuser --dbname=test --no-align --tuples-only -c"; 
 
 #checa se há resposta
 if [[ $1 ]]
