@@ -44,23 +44,24 @@ SET default_tablespace = '';
 SET default_table_access_method = heap;
 
 --
--- Name: games; Type: TABLE; Schema: public; Owner: freecodecamp
+-- Name: number_guess_game; Type: TABLE; Schema: public; Owner: freecodecamp
 --
 
-CREATE TABLE public.games (
+CREATE TABLE public.number_guess_game (
     game_id integer NOT NULL,
-    user_id integer NOT NULL,
-    guesses integer DEFAULT 0 NOT NULL
+    username character varying(20) NOT NULL,
+    games_played integer,
+    best_game integer
 );
 
 
-ALTER TABLE public.games OWNER TO freecodecamp;
+ALTER TABLE public.number_guess_game OWNER TO freecodecamp;
 
 --
--- Name: games_game_id_seq; Type: SEQUENCE; Schema: public; Owner: freecodecamp
+-- Name: number_guess_game_game_id_seq; Type: SEQUENCE; Schema: public; Owner: freecodecamp
 --
 
-CREATE SEQUENCE public.games_game_id_seq
+CREATE SEQUENCE public.number_guess_game_game_id_seq
     AS integer
     START WITH 1
     INCREMENT BY 1
@@ -69,126 +70,87 @@ CREATE SEQUENCE public.games_game_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.games_game_id_seq OWNER TO freecodecamp;
+ALTER TABLE public.number_guess_game_game_id_seq OWNER TO freecodecamp;
 
 --
--- Name: games_game_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: freecodecamp
+-- Name: number_guess_game_game_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: freecodecamp
 --
 
-ALTER SEQUENCE public.games_game_id_seq OWNED BY public.games.game_id;
-
-
---
--- Name: users; Type: TABLE; Schema: public; Owner: freecodecamp
---
-
-CREATE TABLE public.users (
-    user_id integer NOT NULL,
-    username character varying(22) NOT NULL
-);
-
-
-ALTER TABLE public.users OWNER TO freecodecamp;
-
---
--- Name: users_user_id_seq; Type: SEQUENCE; Schema: public; Owner: freecodecamp
---
-
-CREATE SEQUENCE public.users_user_id_seq
-    AS integer
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
-ALTER TABLE public.users_user_id_seq OWNER TO freecodecamp;
-
---
--- Name: users_user_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: freecodecamp
---
-
-ALTER SEQUENCE public.users_user_id_seq OWNED BY public.users.user_id;
+ALTER SEQUENCE public.number_guess_game_game_id_seq OWNED BY public.number_guess_game.game_id;
 
 
 --
--- Name: games game_id; Type: DEFAULT; Schema: public; Owner: freecodecamp
+-- Name: number_guess_game game_id; Type: DEFAULT; Schema: public; Owner: freecodecamp
 --
 
-ALTER TABLE ONLY public.games ALTER COLUMN game_id SET DEFAULT nextval('public.games_game_id_seq'::regclass);
-
-
---
--- Name: users user_id; Type: DEFAULT; Schema: public; Owner: freecodecamp
---
-
-ALTER TABLE ONLY public.users ALTER COLUMN user_id SET DEFAULT nextval('public.users_user_id_seq'::regclass);
+ALTER TABLE ONLY public.number_guess_game ALTER COLUMN game_id SET DEFAULT nextval('public.number_guess_game_game_id_seq'::regclass);
 
 
 --
--- Data for Name: games; Type: TABLE DATA; Schema: public; Owner: freecodecamp
+-- Data for Name: number_guess_game; Type: TABLE DATA; Schema: public; Owner: freecodecamp
 --
 
-INSERT INTO public.games VALUES (227, 73, 319);
-INSERT INTO public.games VALUES (228, 73, 591);
-INSERT INTO public.games VALUES (229, 74, 690);
-INSERT INTO public.games VALUES (230, 73, 107);
-INSERT INTO public.games VALUES (231, 73, 527);
-
-
---
--- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: freecodecamp
---
-
-INSERT INTO public.users VALUES (73, 'user_1678936134195');
-INSERT INTO public.users VALUES (74, 'user_1678936134194');
-
-
---
--- Name: games_game_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
---
-
-SELECT pg_catalog.setval('public.games_game_id_seq', 231, true);
-
-
---
--- Name: users_user_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
---
-
-SELECT pg_catalog.setval('public.users_user_id_seq', 74, true);
-
-
---
--- Name: games games_pkey; Type: CONSTRAINT; Schema: public; Owner: freecodecamp
---
-
-ALTER TABLE ONLY public.games
-    ADD CONSTRAINT games_pkey PRIMARY KEY (game_id);
-
-
---
--- Name: users users_pkey; Type: CONSTRAINT; Schema: public; Owner: freecodecamp
---
-
-ALTER TABLE ONLY public.users
-    ADD CONSTRAINT users_pkey PRIMARY KEY (user_id);
+INSERT INTO public.number_guess_game VALUES (1, 'user_1651337974050', NULL, NULL);
+INSERT INTO public.number_guess_game VALUES (2, 'user_1651337974049', NULL, NULL);
+INSERT INTO public.number_guess_game VALUES (3, 'user_1651338040126', NULL, NULL);
+INSERT INTO public.number_guess_game VALUES (4, 'user_1651338040125', NULL, NULL);
+INSERT INTO public.number_guess_game VALUES (5, 'wow', NULL, NULL);
+INSERT INTO public.number_guess_game VALUES (6, 'ozark', NULL, NULL);
+INSERT INTO public.number_guess_game VALUES (7, 'op', NULL, NULL);
+INSERT INTO public.number_guess_game VALUES (8, 'kyle', NULL, NULL);
+INSERT INTO public.number_guess_game VALUES (9, 'iko', NULL, NULL);
+INSERT INTO public.number_guess_game VALUES (10, 'ol', NULL, NULL);
+INSERT INTO public.number_guess_game VALUES (11, 'luke', NULL, NULL);
+INSERT INTO public.number_guess_game VALUES (12, 'ip', NULL, NULL);
+INSERT INTO public.number_guess_game VALUES (13, 'you', NULL, NULL);
+INSERT INTO public.number_guess_game VALUES (14, 'ui', NULL, NULL);
+INSERT INTO public.number_guess_game VALUES (34, '900', NULL, NULL);
+INSERT INTO public.number_guess_game VALUES (16, 'user_1651418731842', 2, 0);
+INSERT INTO public.number_guess_game VALUES (15, 'user_1651418731843', 5, 0);
+INSERT INTO public.number_guess_game VALUES (18, 'uwu1', NULL, NULL);
+INSERT INTO public.number_guess_game VALUES (17, 'uwu', 5, 0);
+INSERT INTO public.number_guess_game VALUES (19, 'uwu2', 2, 1);
+INSERT INTO public.number_guess_game VALUES (21, 'user_1651420079158', 2, 801);
+INSERT INTO public.number_guess_game VALUES (20, 'user_1651420079159', 5, 254);
+INSERT INTO public.number_guess_game VALUES (36, 'user_1651422475304', 2, 332);
+INSERT INTO public.number_guess_game VALUES (23, 'user_1651420224546', 2, 766);
+INSERT INTO public.number_guess_game VALUES (35, 'user_1651422475305', 5, 119);
+INSERT INTO public.number_guess_game VALUES (22, 'user_1651420224547', 5, 110);
+INSERT INTO public.number_guess_game VALUES (25, 'user_1651420339311', 2, 127);
+INSERT INTO public.number_guess_game VALUES (38, 'user_1651422552313', 2, 442);
+INSERT INTO public.number_guess_game VALUES (24, 'user_1651420339312', 5, 464);
+INSERT INTO public.number_guess_game VALUES (37, 'user_1651422552314', 5, 269);
+INSERT INTO public.number_guess_game VALUES (27, 'user_1651420391049', 2, 503);
+INSERT INTO public.number_guess_game VALUES (26, 'user_1651420391050', 5, 228);
+INSERT INTO public.number_guess_game VALUES (29, 'user_1651420697686', 2, 720);
+INSERT INTO public.number_guess_game VALUES (28, 'user_1651420697687', 5, 24);
+INSERT INTO public.number_guess_game VALUES (31, 'user_1651421399248', 2, 153);
+INSERT INTO public.number_guess_game VALUES (30, 'user_1651421399249', 5, 362);
+INSERT INTO public.number_guess_game VALUES (33, 'user_1651421434512', 2, 22);
+INSERT INTO public.number_guess_game VALUES (32, 'user_1651421434513', 5, 483);
 
 
 --
--- Name: users users_username_key; Type: CONSTRAINT; Schema: public; Owner: freecodecamp
+-- Name: number_guess_game_game_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
 --
 
-ALTER TABLE ONLY public.users
-    ADD CONSTRAINT users_username_key UNIQUE (username);
+SELECT pg_catalog.setval('public.number_guess_game_game_id_seq', 38, true);
 
 
 --
--- Name: games fk_users_games; Type: FK CONSTRAINT; Schema: public; Owner: freecodecamp
+-- Name: number_guess_game number_guess_game_pkey; Type: CONSTRAINT; Schema: public; Owner: freecodecamp
 --
 
-ALTER TABLE ONLY public.games
-    ADD CONSTRAINT fk_users_games FOREIGN KEY (user_id) REFERENCES public.users(user_id);
+ALTER TABLE ONLY public.number_guess_game
+    ADD CONSTRAINT number_guess_game_pkey PRIMARY KEY (game_id);
+
+
+--
+-- Name: number_guess_game number_guess_game_username_key; Type: CONSTRAINT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.number_guess_game
+    ADD CONSTRAINT number_guess_game_username_key UNIQUE (username);
 
 
 --
